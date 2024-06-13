@@ -1,10 +1,11 @@
-# python-jupyter
+# Jupyter bash kernel demorunner
 
-Example dev environment project of using devcontainer for python and jupyter notebooks.
+Example dev environment project for bash and jupyter notebooks.
 
 ```
-# TODO: add this to devcontainer.json
+# This is already done in devcontainer.json
 $ conda env update -n base -f environment.yml
+$ python -m bash_kernel.install
 ```
 
-open the notebook in the editor. Once you have the notebook open, you can run the cells by clicking the run button or pressing `shift + enter`. The container can be rebuilt and will remember the conda environment and jupyter notebook settings.
+Open the notebook in the editor. Once you have the notebook open, you can run the cells by clicking the run button or pressing `shift + enter`. The container can be rebuilt and will remember the conda environment and jupyter notebook settings.
