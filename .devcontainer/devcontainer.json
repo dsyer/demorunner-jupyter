@@ -9,8 +9,11 @@
   ],
 
   "mounts": [
-    "source=conda,target=/opt/conda,type=volume"
+    "source=conda,target=/opt/conda,type=volume",
+    "source=kernels,target=/home/vscode/.local/share/jupyter,type=volume"
   ],
+
+  "postCreateCommand": "sudo chown vscode:vscode /home/vscode/.local/share/jupyter && conda env update -n base -f environment.yml && python -m bash_kernel.install",
 
   // Add the IDs of extensions you want installed when the container is created.
   "extensions": [
