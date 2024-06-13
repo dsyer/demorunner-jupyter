@@ -2,43 +2,22 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/master/containers/docker-existing-dockerfile
 {
   "name": "nix-devcontainer-python-jupyter",
-  "dockerFile": "Dockerfile",
-  "context": "${localWorkspaceFolder}",
-  "build": {
-    "args": {
-      "USER_UID": "${localEnv:USER_UID}",
-      "USER_GID": "${localEnv:USER_GID}"
-    },
-  },
+  "image": "mcr.microsoft.com/devcontainers/anaconda",
 
   "runArgs": [
     "--security-opt", "label=disable"
   ],
 
   "mounts": [
-    "source=nix-devcontainer-python-jupyter_nix,target=/nix,type=volume"
+    "source=conda,target=/opt/conda,type=volume"
   ],
-
-  "userEnvProbe": "loginShell",
-  "overrideCommand": false,
-  "updateRemoteUserUID": false,
-
-  // build development environment on creation
-  "onCreateCommand": "nix-shell --command 'echo done building nix dev environment'",
 
   // Add the IDs of extensions you want installed when the container is created.
   "extensions": [
-    // select nix environment
-    "arrterian.nix-env-selector",
-
-    // nix formatting and dev support
-    "jnoortheen.nix-ide",
-
-    // run command on save (needed to reload nix environment)
-    "fsevenm.run-it-on",
-
     // python support
-    "ms-python.python"
+    "ms-python.python",
+    // jupyter support
+    "ms-toolsai.jupyter"
   ],
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
