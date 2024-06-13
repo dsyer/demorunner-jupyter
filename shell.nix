@@ -4,7 +4,8 @@ pkgs.mkShell {
   # nativeBuildInputs is usually what you want -- tools you need to run
   nativeBuildInputs = with pkgs; [
     nixpkgs-fmt
-    rnix-lsp
+    # rnix-lsp
+    nil
 
     python3
     python3Packages.ipython
