@@ -26,6 +26,15 @@ The `shell.nix` sets up a virtual python environment with `pip`. You can create 
 
 If you have the [Nix environment extension](https://marketplace.visualstudio.com/items?itemName=arrterian.nix-env-selector) for VSCode installed, you can open the project locally (without a devcontainer) by selecting the `shell.nix` file as an environment. You might need to manually reload the window after selecting the environment.
 
+### Pip
+
+If you use pip, you can create a new environment with the `requirements.txt` file. 
+
+```
+$ pip install -r requirements.txt
+$ python -m bash_kernel.install
+```
+
 ### Conda
 
 If you use conda, you can create a new environment with the `environment.yml` file. Assuming the "base" environment is active:
