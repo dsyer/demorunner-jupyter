@@ -6,7 +6,7 @@ mkShell {
   buildInputs = [
     python3Packages.python
     python3Packages.venvShellHook
-    python3Packages.jupyter
+    python3Packages.jupyter # not needed in VSCode
     python3Packages.ipython
     python3Packages.ipykernel
   ];

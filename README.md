@@ -10,7 +10,7 @@ Once the python environment is sorted out, you can open the project in VSCode. O
 
 ### Command line and Browser
 
-Prepare the python environment:
+Prepare the python environment, e.g:
 
 ```
 $ nix-shell
@@ -26,9 +26,11 @@ $ jupyter notebook sample.ipynb
 
 ### Nix Shell
 
-The `shell.nix` sets up a virtual python environment with `pip`. If you have the [Nix extension](https://marketplace.visualstudio.com/items?itemName=bbenoist.Nix) for VSCode installed, you can open the project locally (without a devcontainer) by selecting the `shell.nix` file as an environment.
+The `shell.nix` sets up a virtual python environment with `pip`. You can create the environment with `nix-shell` on the command line. This will drop you into a shell with the environment activated.
 
-## Conda
+If you have the [Nix environment extension](https://marketplace.visualstudio.com/items?itemName=arrterian.nix-env-selector) for VSCode installed, you can open the project locally (without a devcontainer) by selecting the `shell.nix` file as an environment. You might need to manually reload the window after selecting the environment.
+
+### Conda
 
 If you use conda, you can create a new environment with the `environment.yml` file:
 
