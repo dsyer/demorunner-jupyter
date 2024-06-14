@@ -16,7 +16,7 @@ If you already have all the dependencies then you can launch the notebook in you
 $ jupyter notebook sample.ipynb
 ```
 
-starts a web server and opens it in your browser.
+starts a web server and opens it in your browser. You might need to restart or reselect the "Bash" kernel in the notebook.
 
 ## Dependencies and Python Environment
 
