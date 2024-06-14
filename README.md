@@ -6,21 +6,17 @@ Example dev environment project for bash and jupyter notebooks. You can open the
 
 ### VSCode
 
-Once the python environment is sorted out, you can open the project in VSCode. Open the notebook in the editor and select a kernel from the picker at the top right - the "Bash" kernel should show up as a ["Jupyter Kernel"](https://code.visualstudio.com/docs/datascience/jupyter-kernel-management#_jupyter-kernels).
+Once the python environment is sorted out, you need the [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) extension. You also need the [Nix environment extension](https://marketplace.visualstudio.com/items?itemName=arrterian.nix-env-selector) if you are using nix to manage the project dependencies. Open the notebook in the editor and select a kernel from the picker at the top right - the "Bash" kernel should show up as a ["Jupyter Kernel"](https://code.visualstudio.com/docs/datascience/jupyter-kernel-management#_jupyter-kernels) if you got all the dependencies set up.
 
 ### Command line and Browser
 
-Prepare the python environment, e.g:
-
-```
-$ nix-shell
-```
-
-(If you already have all the dependencies you don't need this.) Then launch the notebook in your browser:
+If you already have all the dependencies then you can launch the notebook in your browser:
 
 ```
 $ jupyter notebook sample.ipynb
 ```
+
+starts a web server and opens it in your browser.
 
 ## Dependencies and Python Environment
 
@@ -32,7 +28,7 @@ If you have the [Nix environment extension](https://marketplace.visualstudio.com
 
 ### Conda
 
-If you use conda, you can create a new environment with the `environment.yml` file:
+If you use conda, you can create a new environment with the `environment.yml` file. Assuming the "base" environment is active:
 
 ```
 # This is already done in devcontainer.json
