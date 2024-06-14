@@ -6,7 +6,6 @@ mkShell {
   buildInputs = [
     python3Packages.python
     python3Packages.venvShellHook
-    python3Packages.jupyter # not needed in VSCode
     python3Packages.ipython
     python3Packages.ipykernel
   ];
@@ -14,13 +13,15 @@ mkShell {
   venvDir = "./.venv";
   postVenvCreation = ''
     unset SOURCE_DATE_EPOCH
-    pip install bash_kernel
-    python -m bash_kernel.install
+    pip install --prefix=.venv jupyter
+    pip install --prefix=.venv bash_kernel
+    python -m bash_kernel.install --sys-prefix
   '';
 
   postShellHook = ''
     # allow pip to install wheels
     unset SOURCE_DATE_EPOCH
+    export LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib.outPath}/lib:$LD_LIBRARY_PATH";
   '';
 
 }
