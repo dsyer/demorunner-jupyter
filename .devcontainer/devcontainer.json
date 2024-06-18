@@ -1,31 +1,31 @@
 // For format details, see https://aka.ms/vscode-remote/devcontainer.json or the definition README at
 // https://github.com/microsoft/vscode-dev-containers/tree/master/containers/docker-existing-dockerfile
 {
-  "name": "nix-devcontainer-python-jupyter",
-  "image": "mcr.microsoft.com/devcontainers/anaconda",
+  "name": "nix-devcontainer",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
 
-  "runArgs": [
-    "--security-opt", "label=disable"
-  ],
+  "userEnvProbe": "loginShell",
+  "remoteUser": "vscode",
 
-  "mounts": [
-    "source=conda,target=/opt/conda,type=volume",
-    "source=kernels,target=/home/vscode/.local/share/jupyter,type=volume"
-  ],
 
-  "postCreateCommand": "sudo chown vscode:vscode /home/vscode/.local/share/jupyter && conda env update -n base -f environment.yml && python -m bash_kernel.install",
+  // "onCreateCommand": "nix-shell --command 'echo done building nix dev environment'",
 
-  // Add the IDs of extensions you want installed when the container is created.
   "extensions": [
-    // python support
+    "arrterian.nix-env-selector",
+    "jnoortheen.nix-ide",
+    "fsevenm.run-it-on",
+    "ms-azuretools.vscode-docker",
+    "yzhang.markdown-all-in-one",
     "ms-python.python",
-    // jupyter support
     "ms-toolsai.jupyter"
   ],
 
-  // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  "forwardPorts": [],
-
-  // Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": "go version",
+  "features": {
+    "ghcr.io/devcontainers/features/nix": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker": {
+      "version": "latest"
+    }
+  }
 }
