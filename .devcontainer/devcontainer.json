@@ -7,6 +7,11 @@
   "userEnvProbe": "loginShell",
   "remoteUser": "vscode",
 
+  "mounts": [
+    "source=kernels,target=/home/vscode/.local/share/jupyter,type=volume"
+  ],
+
+  "postCreateCommand": "sudo chown vscode:vscode /home/vscode/.local/share/jupyter",
 
   // "onCreateCommand": "nix-shell --command 'echo done building nix dev environment'",
 
