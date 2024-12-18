@@ -6,14 +6,13 @@ mkShell {
   buildInputs = [
     python3Packages.python
     python3Packages.venvShellHook
-    python3Packages.ipython
     python3Packages.ipykernel
   ];
 
   venvDir = "./.venv";
   postVenvCreation = ''
     unset SOURCE_DATE_EPOCH
-    pip install --prefix=.venv jupyter
+    pip install --prefix=.venv ipython ipykernel jupyter
     pip install --prefix=.venv bash_kernel
     python -m bash_kernel.install
   '';
